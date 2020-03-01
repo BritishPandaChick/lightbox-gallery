@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: lightgrey;
+    font-family: arial, verdana, tahoma;
+}
+
+#lightbox {
+    margin: 10px auto;
+    width: 530px;
+    border: 1px solid #ccc;
+}
+
+#lightbox h1 {
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px 0;
+    margin: 20px 0;
+    background: grey;
+}
+
+#lightbox ul {
+    overflow: hidden;
+}
+
+/* Image Styles */
+#lighbox ul li {
+    float: left;
+    padding: 10px;
+    background: #fff;
+    margin: 0 20px 20px 0;
+    list-style-type: none;
+    cursor: pointer;
+}
+
+/* No right margin for images in 2nd column */
+#lightbox ul li:nth-child(even) {
+    margin-right: 0;
+}
+
+#lightbox ul li img {
+    display: block;
+}
+
+/* Images titles */
+#lightbox .image_title {
+    width: 250px;
+    height: 175px;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: table;
+    /* Hover effect - default state */
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+#lightbox .title {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    font-size: 14px;
+    text-align: center;
+    /* Vertical center align */
+    display: table-cell;
+    vertical-align: middle;
+    /* Hover effect- default state */
+    transform: scale(0.2);
+    transition: all 0.25s;
+}
+
+/* zoom icon over each title using iconfont and pseuod elements */
+#lightbox .title::before {
+    /* Content will contain the ascii value of the iconfont character. It cannot take special characters directly */
+    content: '\1F50D';
+    font-family: entypo;
+    font-size: 60px;
+    color: #fff;
+    opacity: 0.5;
+    display: block;
+    line-height: 70%;
+}
+
+/* Hover states */
+#lightbox li:hover {
+    box-shadow: inset 0 0 10px 1px rgba(0, 0, 0, 0.75);
+}
+
+#lightbox li:hover .image_title {
+    opacity: 1;
+}
+
+#lightbox li:hover .title {
+    transform: scale(1);
+}
+
+@font-face {
+    font-family: entypo;
+    src: url("http://thecodeplayer.com/uploads/fonts/entypo.ttf");
+}
