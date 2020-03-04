@@ -104,7 +104,7 @@ body {
 }
 
 /* Lightbox element style */
-.lb_canvas {
+.lb_backdrop {
     background: rgba(0, 0, 0, 0.9);
     position: fixed;
     top: 0;
@@ -113,6 +113,7 @@ body {
     bottom: 0;
 }
 
+/* The canvas contains the larger image */
 .lb_canvas {
     background: white;
     width: 50px;
@@ -121,8 +122,7 @@ body {
     top: 0;
     left: 0; /* will be centered later in jQuery */
     box-shadow: 0 0 20px 5px black;
-    /* Loading GIF */
-    background: white url("http://thecodeplayer.com/uploads/media/loading.gif") center center no-repeat;
+    padding: 10px;
 }
 
 /* A separate class for loading GIF for easy jQuery handling */

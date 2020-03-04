@@ -1,5 +1,11 @@
 $(document).ready(function(){
+    //Flag for preventing multiple image displays
+    var lb_loading = false;
     $("#lightbox li").click(function(){
+        if(lb_loading) {
+            return false;
+        }
+        lb_loading = true;
         var item = $(this);
         var img = item.find("img");
         var title = item.find(".title").html();
@@ -27,9 +33,15 @@ $(document).ready(function(){
             $(total_html).appendTo("body");
         }
 
+        //Display preloader till the large image loads and make te previous image translucent so that the loader in the BG is visible 
+        if(!large_img.complete){
+            $(".lb_canvas").addClass("loading").children().css("opacity", "0.5")
+        } 
+
+
         //Centering .lb_canvas 
-        var CW = $(".lb_canvas").outerWidth();
-        var CH = $(".lb_canvas").outerHeight();
+        var CW = ($(".lb_canvas").outerWidth();
+        var CH = ($(".lb_canvas").outerHeight();
         //top and left coordinates 
         var CL = ($(window).width() - CW)/2;
         var CT = ($(window).height() - CH)/2;
@@ -44,15 +56,66 @@ $(document).ready(function(){
             var hpadding = parseInt($(".lb_canvas").css("paddingLeft")) + parseInt($(".lb_canvas").css("paddingRight"));
             var vpadding = parseInt($(".lb_canvas").css("paddingTop")) + parseInt($(".lb_canvas").css("paddingBottom"));
             CL = ($(window).width() - CW - hpadding)/2 
-            CT = ($(window).height() - CW - vpadding)/2
+            CT = ($(window).height() - CH - vpadding)/2
             
             //Animating .lb_canvas to new dimensions and position
             $(".lb_canvas").html("").animate({width: CW, height: CH, top: CT, left: CL}, 500, function(){
                 //Inserting the image but keeping it hidden 
                 var imgtag = '<img src="' + large_img.src + '" style="opacity: 0;" />';
                 $(".lb_canvas").html(imgtag);
-                $()
+                $(".lb_canvas img").fadeTo("slow", 1);
+                //Displaying the image title 
+                $(".lb_canvas.title").html(title);
+
+                lb_loading = false;
             });     
         });
     });
+
+    //Click based navigation 
+    var doc = $(document);
+    doc.on("click", ".lb_previous", function(){
+        navigate(-1)
+    });
+
+    doc.on("click", ".lb_next", function(){
+        navigate(-1)
+    });
+
+    doc.on("click", ".lb_backdrop", function(){
+        navigate(-1)
+    });
+
+    //Keyboard based navigation 
+    doc.keyup(function(e){
+        //Keyboard navigation should work only if lightbo is active which means 
+        if($(".lb_canvas:visible").length == 1){
+            //Left
+            if(e.keyCode == "37") {
+                navigate(-1);
+            //Right
+            } else if (e.keyCode == "39") {
+                navigate(1);
+            //Esc
+            } else if (e.keyCode == "27") {
+                navigate(0);
+            }
+        } 
+    });
+
+    //Navigation function 
+    function navigate(direction){
+        if(direction == -1){
+            $("lightbox li.active").prev().trigger("click");
+        } else if(direction == 1) { //right
+            $("lightbox li.active").next().trigger("click");
+        } else if (direction == 0){ //exit
+            $("#lightbox li.active").removeClass("active");
+            $(".lb_backdrop, .lb_canvas, .lb_controls").fadeOut("slow", function(){
+                //empty canvas and title 
+                $(".lb_canvas, .lb_title").html();
+            });
+            lb_loading = false;
+        }
+    }
 });
