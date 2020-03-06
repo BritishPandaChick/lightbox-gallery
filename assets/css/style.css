@@ -4,7 +4,9 @@
 }
 
 body {
-    background: lightgrey;
+    /* Fancy Full page BG */
+    background: url("http://thecodeplayer.com/uploads/media/sunsky_m.png") center center fixed;
+    background-size: cover;
     font-family: arial, verdana, tahoma;
 }
 
@@ -19,7 +21,11 @@ body {
     text-align: center;
     padding: 10px 0;
     margin: 20px 0;
-    background: grey;
+    color: white;
+    font-size: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    border-left: 2px solid rgba(255, 255, 255, 0.65);
+    border-right: 2px solid rgba(255, 255, 255, 0.65);
 }
 
 #lightbox ul {
@@ -76,13 +82,13 @@ body {
 /* zoom icon over each title using iconfont and pseuod elements */
 #lightbox .title::before {
     /* Content will contain the ascii value of the iconfont character. It cannot take special characters directly */
-    content: '\1F50D';
-    font-family: entypo;
-    font-size: 60px;
+    content: 'L';
+    font-family: websymbols;
+    font-size: 24px;
     color: #fff;
     opacity: 0.5;
     display: block;
-    line-height: 70%;
+    line-height: 30px;
 }
 
 /* Hover states */
@@ -98,9 +104,14 @@ body {
     transform: scale(1);
 }
 
+
 @font-face {
-    font-family: entypo;
-    src: url("http://thecodeplayer.com/uploads/fonts/entypo.ttf");
+    font-family: websymbols;
+    src: url("http://thecodeplayer.com/uploads/fonts/websymbols.eot");
+    src: url("http://thecodeplayer.com/uploads/fonts/websymbols.eot?#iefix") format("embedded-opentype"),
+    url("http://thecodeplayer.com/uploads/fonts/websymbols.woff") format("woff"),
+    url("http://thecodeplayer.com/uploads/fonts/websymbols.ttf") format("truetype"),
+    url("http://thecodeplayer.com/uploads/fonts/websymbols.svg#WebSymbolsRegular") format("svg");
 }
 
 /* Lightbox element style */
@@ -148,13 +159,18 @@ body {
     height: 30px;
 }
 
+.lb_controls span.inactive {
+    opacity: 0.25;
+}
+
 .lb_previous, .lb_next {
     position: absolute;
     top: 0;
-    padding: 5px 10px;
-    font-family: entypo;
-    font-size: 60px;
+    padding: 5px 12px;
+    font-family: websymbols;
+    font-size: 14px;
     background: black;
+    cursor: pointer;
 }
 
 .lb_previous {
