@@ -105,14 +105,13 @@ body {
     transform: scale(1);
 }
 
-
 @font-face {
     font-family: websymbols;
     src: url("http://thecodeplayer.com/uploads/fonts/websymbols.eot");
-    src: url("http://thecodeplayer.com/uploads/fonts/websymbols.eot?#iefix") format("embedded-opentype"),
-    url("http://thecodeplayer.com/uploads/fonts/websymbols.woff") format("woff"),
-    url("http://thecodeplayer.com/uploads/fonts/websymbols.ttf") format("truetype"),
-    url("http://thecodeplayer.com/uploads/fonts/websymbols.svg#WebSymbolsRegular") format("svg");
+	src: url('http://thecodeplayer.com/uploads/fonts/websymbols.eot?#iefix') format('embedded-opentype'),
+     url('http://thecodeplayer.com/uploads/fonts/websymbols.woff') format('woff'),
+     url('http://thecodeplayer.com/uploads/fonts/websymbols.ttf') format('truetype'),
+	 url('http://thecodeplayer.com/uploads/fonts/websymbols.svg#WebSymbolsRegular') format('svg');
 }
 
 /* Lightbox element style */

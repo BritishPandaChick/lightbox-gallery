@@ -2,7 +2,7 @@ $(document).ready(function(){
     var item, img, title, large_img;
     var CW, CH, CL, CT, hpadding, vpadding, imgtag;
     //Flag for preventing multiple image displays
-    lb_loading = false;
+    var lb_loading = false;
     var doc = $(document);
 
     $("#lightbox li").click(function(){
@@ -61,10 +61,9 @@ $(document).ready(function(){
             $(".lb_next").removeClass("inactive");
         } 
 
-
         //Centering .lb_canvas 
-        CW = ($(".lb_canvas").outerWidth();
-        CH = ($(".lb_canvas").outerHeight();
+        CW = $(".lb_canvas").outerWidth();
+        CH = $(".lb_canvas").outerHeight();
         //top and left coordinates 
         CL = ($(window).width() - CW)/2;
         CT = ($(window).height() - CH)/2;
