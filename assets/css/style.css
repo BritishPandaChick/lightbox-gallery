@@ -12,7 +12,7 @@ body {
 
 #lightbox {
     margin: 10px auto;
-    width: 530px;
+    width: 520px;
     border: 1px solid #ccc;
 }
 
@@ -39,6 +39,7 @@ body {
     background: #fff;
     margin: 0 20px 20px 0;
     list-style-type: none;
+    position: relative;
     cursor: pointer;
 }
 
@@ -88,7 +89,7 @@ body {
     color: #fff;
     opacity: 0.5;
     display: block;
-    line-height: 30px;
+    line-height: 36px;
 }
 
 /* Hover states */
@@ -180,7 +181,7 @@ body {
 
 .lb_next {
     right: 0;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .lb_title {
