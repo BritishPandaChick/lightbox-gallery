@@ -6,9 +6,7 @@ $(document).ready(function(){
     var doc = $(document);
 
     $("#lightbox li").click(function(){
-        if(lb_loading) {
-            return false;
-        }
+        if(lb_loading) return false;
         lb_loading = true;
 
         item = $(this);
@@ -83,7 +81,7 @@ $(document).ready(function(){
             //Animating .lb_canvas to new dimensions and position
             $(".lb_canvas").html("").animate({width: CW, height: CH, top: CT, left: CL}, 500, function(){
                 //Inserting the image but keeping it hidden 
-                imgtag = '<img src="' + large_img.src + '"style="opacity: 0;" />';
+                imgtag = '<img src="' + large_img.src + '" style="opacity: 0;" />';
                 $(".lb_canvas").html(imgtag);
                 $(".lb_canvas img").fadeTo("slow", 1);
                 //Displaying the image title 
@@ -113,24 +111,20 @@ $(document).ready(function(){
         //Keyboard navigation should work only if lightbo is active which means backdrop visible  
         if($(".lb_backdrop:visible").length == 1){
             //Left
-            if(e.keyCode == "37") {
-                navigate(-1);
+            if(e.keyCode == "37") navigate(-1);
             //Right
-            } else if (e.keyCode == "39") {
-                navigate(1);
+            else if (e.keyCode == "39") navigate(1);
             //Esc
-            } else if (e.keyCode == "27") {
-                navigate(0);
-            }
+            else if (e.keyCode == "27") navigate(0);
         } 
     });
 
     //Navigation function 
     function navigate(direction){
         if(direction == -1){
-            $("lightbox li.active").prev().trigger("click");
+            $("#lightbox li.active").prev().trigger("click");
         } else if(direction == 1) { 
-            $("lightbox li.active").next().trigger("click"); //right
+            $("#lightbox li.active").next().trigger("click"); //right
         } else if (direction == 0){ 
             //exit
             $("#lightbox li.active").removeClass("active");
@@ -138,7 +132,7 @@ $(document).ready(function(){
             // Fade out the lightbox elements 
             $(".lb_backdrop, .lb_canvas, .lb_controls").fadeOut("slow", function(){
                 //empty canvas and title 
-                $(".lb_canvas, .lb_title").html();
+                $(".lb_canvas, .lb_title").html("");
             });
             lb_loading = false;
         }
