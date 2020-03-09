@@ -21,7 +21,7 @@ body {
     text-align: center;
     padding: 10px 0;
     margin: 20px 0;
-    color: white;
+    color: white; 
     font-size: 24px;
     background: rgba(255, 255, 255, 0.1);
     border-left: 2px solid rgba(255, 255, 255, 0.65);
@@ -32,8 +32,8 @@ body {
     overflow: hidden;
 }
 
-/* Image Styles */
-#lighbox ul li {
+/* Image styles */
+#lightbox ul li {
     float: left;
     padding: 10px;
     background: #fff;
@@ -43,7 +43,7 @@ body {
     cursor: pointer;
 }
 
-/* No right margin for images in 2nd column */
+/* No right margin for images in the 2nd column */
 #lightbox ul li:nth-child(even) {
     margin-right: 0;
 }
@@ -52,7 +52,7 @@ body {
     display: block;
 }
 
-/* Images titles */
+/* Image titles */
 #lightbox .image_title {
     width: 250px;
     height: 175px;
@@ -73,23 +73,22 @@ body {
     font-size: 14px;
     text-align: center;
     /* Vertical center align */
-    display: table-cell;
-    vertical-align: middle;
-    /* Hover effect- default state */
+    display: table-cell; 
+    vertical-align: middle; 
+    /* Hover effect - default sate */
     transform: scale(0.2);
     transition: all 0.25s;
 }
 
-/* zoom icon over each title using iconfont and pseuod elements */
+/* Zoom icon over each title using iconfont and pseudo elements */
 #lightbox .title::before {
-    /* Content will contain the ascii value of the iconfont character. It cannot take special characters directly */
     content: 'L';
-    font-family: websymbols;
+    font-family: websymbols; 
     font-size: 24px;
     color: #fff;
     opacity: 0.5;
     display: block;
-    line-height: 36px;
+    line-height: 36px; 
 }
 
 /* Hover states */
@@ -105,9 +104,10 @@ body {
     transform: scale(1);
 }
 
+/* Let's change the iconfont to websymbols since entypo has some issues with rendering on windows */
 @font-face {
-    font-family: websymbols;
-    src: url("http://thecodeplayer.com/uploads/fonts/websymbols.eot");
+	font-family: websymbols;
+	src: url("http://thecodeplayer.com/uploads/fonts/websymbols.eot");
 	src: url('http://thecodeplayer.com/uploads/fonts/websymbols.eot?#iefix') format('embedded-opentype'),
      url('http://thecodeplayer.com/uploads/fonts/websymbols.woff') format('woff'),
      url('http://thecodeplayer.com/uploads/fonts/websymbols.ttf') format('truetype'),
@@ -131,24 +131,24 @@ body {
     height: 50px;
     position: fixed;
     top: 0;
-    left: 0; /* will be centered later in jQuery */
+    left: 0; /* will be centered later by jQuery */
     box-shadow: 0 0 20px 5px black;
     padding: 10px;
 }
 
-/* A separate class for loading GIF for easy jQuery handling */
+/* A separate case for loading GIF, for easy jQuery handling */
 .lb_canvas.loading {
     background: white url("http://thecodeplayer.com/uploads/media/loading.gif") center center no-repeat;
 }
 
-/* LB Controls */
+/* Lightbox controls */
 .lb_controls {
     width: 400px;
     background: rgba(0, 0, 0, 0.75);
     position: fixed;
     bottom: 10px;
     color: white;
-    /* to horizontally center it */
+    /* To horizontally center it */
     left: 0;
     right: 0;
     margin: 0 auto;
